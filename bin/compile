@@ -1,0 +1,30 @@
+# indent
+i() {
+  sed 's/^/!!!!!! /'
+}
+
+
+export CACHE_DIR=$2
+mkdir -p "$CACHE_DIR"
+mkdir -p "$CACHE_DIR/gatsby/.cache/"
+mkdir -p "$CACHE_DIR/gatsby/public/"
+
+echo 'cat "$CACHE_DIR/gatsby/.cache/"'
+cat "$CACHE_DIR/gatsby/.cache/"
+echo 'cat "$CACHE_DIR}/gatsby/public/"'
+cat "$CACHE_DIR}/gatsby/public/"
+cp "$CACHE_DIR}/gatsby/.cache" ./cache/
+cp "$CACHE_DIR}/gatsby/public" ./public/
+
+echo 'running "gatsby build"'
+gatsby build
+
+echo 'cat "./.cache/"'
+cat "./.cache/"
+echo 'cat "./public/"'
+cat "./public/"
+
+cp ./cache/ "$CACHE_DIR}/gatsby/.cache"
+cp ./public/ "$CACHE_DIR}/gatsby/public" 
+
+exit 0
