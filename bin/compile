@@ -2,7 +2,8 @@
 i() {
   sed 's/^/!!!!!! /'
 }
-
+export BUILD_DIR=$1
+cd "$BUILD_DIR"
 
 export CACHE_DIR=$2
 mkdir -p "$CACHE_DIR"
