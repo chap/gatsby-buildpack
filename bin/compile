@@ -27,6 +27,6 @@ gatsby build
 # ls "./public/"
 
 rm -rf "$CACHE_DIR/gatsby/.cache/"
-cp -R ./cache/ "$CACHE_DIR/gatsby/.cache/"
+cp -R ./.cache/ "$CACHE_DIR/gatsby/.cache/"
 rm -rf "$CACHE_DIR/gatsby/public/" 
 cp -R ./public/ "$CACHE_DIR/gatsby/public/" 
