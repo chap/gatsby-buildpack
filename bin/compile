@@ -10,22 +10,24 @@ mkdir -p "$CACHE_DIR"
 mkdir -p "$CACHE_DIR/gatsby/.cache/"
 mkdir -p "$CACHE_DIR/gatsby/public/"
 
-echo 'cat "$CACHE_DIR/gatsby/.cache/"'
-cat "$CACHE_DIR/gatsby/.cache/"
-echo 'cat "$CACHE_DIR}/gatsby/public/"'
-cat "$CACHE_DIR}/gatsby/public/"
-cp "$CACHE_DIR}/gatsby/.cache" ./cache/
-cp "$CACHE_DIR}/gatsby/public" ./public/
+echo 'ls "$CACHE_DIR/gatsby/.cache/"'
+ls "$CACHE_DIR/gatsby/.cache/"
+echo 'ls "$CACHE_DIR}/gatsby/public/"'
+ls "$CACHE_DIR}/gatsby/public/"
+cp -R "$CACHE_DIR}/gatsby/.cache/" ./cache/
+cp -R "$CACHE_DIR}/gatsby/public" ./public/
 
 echo 'running "gatsby build"'
 gatsby build
 
-echo 'cat "./.cache/"'
-cat "./.cache/"
-echo 'cat "./public/"'
-cat "./public/"
+echo 'ls "./.cache/"'
+ls "./.cache/"
+echo 'ls "./public/"'
+ls "./public/"
 
-cp ./cache/ "$CACHE_DIR}/gatsby/.cache"
-cp ./public/ "$CACHE_DIR}/gatsby/public" 
+rm -rf "$CACHE_DIR}/gatsby/.cache/"
+cp -R ./cache/ "$CACHE_DIR}/gatsby/.cache/"
+rm -rf "$CACHE_DIR}/gatsby/public/" 
+cp -R ./public/ "$CACHE_DIR}/gatsby/public/" 
 
 exit 0
